@@ -14,7 +14,7 @@ local function GetStatus(inst)
 end
 
 local function OnActivate(inst, doer)
-	--print("OnActivated!")
+	print("OnActivated!")
 	if doer:HasTag("player") then
         ProfileStatsSet("wormhole_used", true)
 		doer.components.health:SetInvincible(true)
@@ -30,9 +30,6 @@ local function OnActivate(inst, doer)
 			TheFrontEnd:Fade(true,2)
 			GetPlayer().HUD:Show()
 			doer.sg:GoToState("wakeup")
-			if doer.components.sanity then
-				doer.components.sanity:DoDelta(-TUNING.SANITY_MED)
-			end
 		end)
 		doer:DoTaskInTime(5, function()
 			doer:PushEvent("wormholespit")
@@ -73,9 +70,9 @@ local function fn(Sim)
 	inst:AddComponent("playerprox")
 	inst.components.playerprox:SetDist(4,5)
 	inst.components.playerprox.onnear = function()
-		if inst.components.teleporter.targetTeleporter ~= nil and not inst.sg:HasStateTag("open") then
+		--if inst.components.teleporter.targetTeleporter ~= nil and not inst.sg:HasStateTag("open") then
 			inst.sg:GoToState("opening")
-		end
+		--end
 	end
 	inst.components.playerprox.onfar = function()
 		inst.sg:GoToState("closing")
@@ -93,6 +90,17 @@ local function fn(Sim)
 		reciever.components.inventory:DropItem(item)
 		inst.components.teleporter:Activate(item)
 	end
+
+	--find a partner to pair to
+	local x,y,z = trans:GetWorldPosition()
+    local ents = TheSim:FindEntities(x,y,z, 9001)
+
+	for k,v in pairs(ents) do
+        if v ~= inst and v.prefab == "wormhole_friendly" then
+			inst.components.teleporter:Target(v)
+			break
+        end
+    end
 
     return inst
 end
