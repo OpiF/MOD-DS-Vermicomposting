@@ -1,10 +1,7 @@
 require "prefabutil"
 require "vermicomposting_shared"
 
-local assets =
-{
-	Asset("ANIM", "anim/pinecone.zip"),
-}
+local Assets = {}
 
 local function describe(inst)
 	return "?????"
@@ -27,10 +24,6 @@ local function fn(Sim)
 
 	MakeInventoryPhysics(inst)
 
-	inst.AnimState:SetBank("pinecone")
-	inst.AnimState:SetBuild("pinecone")
-	inst.AnimState:PlayAnimation("idle")
-
 	inst:AddComponent("stackable")
 	inst.components.stackable.maxsize = 1
 	
@@ -38,7 +31,7 @@ local function fn(Sim)
 	inst.components.inspectable.getstatus = describe
 	
 	inst:AddComponent("inventoryitem")
-
+	
     inst:AddComponent("useableitem")
     inst.components.useableitem:SetOnUseFn(VermicompostingTeleportTo)
 	inst.components.useableitem:SetCanInteractFn(caninteract)
@@ -48,4 +41,4 @@ local function fn(Sim)
 	return inst
 end
 
-return Prefab("vermicomposting/inventory/wormhole_friendly_teleporter", fn, assets)
+return Prefab("vermicomposting/inventory/wormhole_friendly_teleporter", fn, Assets)

@@ -1,8 +1,9 @@
 require "prefabutil"
 
-local assets =
+local Assets =
 {
-	Asset("ANIM", "anim/pinecone.zip"),
+	Asset("ANIM", "anim/worm_friendly.zip"),
+	Asset("ATLAS", "images/inventoryimages/worm_friendly.xml"),
 }
 
 local function plant(inst)
@@ -58,15 +59,13 @@ end
 
 local function fn(Sim)
 	local inst = CreateEntity()
-
 	inst.entity:AddTransform()
 	inst.entity:AddAnimState()
 	inst.entity:AddSoundEmitter()
-
 	MakeInventoryPhysics(inst)
 
-	inst.AnimState:SetBank("pinecone")
-	inst.AnimState:SetBuild("pinecone")
+	inst.AnimState:SetBank("worm_friendly")
+	inst.AnimState:SetBuild("worm_friendly")
 	inst.AnimState:PlayAnimation("idle")
 
 	inst:AddComponent("stackable")
@@ -76,6 +75,7 @@ local function fn(Sim)
 	inst.components.inspectable.getstatus = describe
 	
 	inst:AddComponent("inventoryitem")
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/worm_friendly.xml"
 	
 	inst:AddComponent("deployable")
 	inst.components.deployable.test = test_ground
@@ -86,5 +86,5 @@ local function fn(Sim)
 	return inst
 end
 
-return Prefab("vermicomposting/inventory/worm_friendly", fn, assets),
-	MakePlacer("common/worm_friendly_placer", "pinecone", "pinecone", "idle_planted")
+return Prefab("common/inventory/worm_friendly", fn, Assets),
+	MakePlacer("common/worm_friendly_placer", "teleporter_worm", "teleporter_worm_friendly_build", "idle_loop")
