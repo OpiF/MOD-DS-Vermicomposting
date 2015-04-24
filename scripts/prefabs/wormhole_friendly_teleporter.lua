@@ -23,9 +23,6 @@ local function fn(Sim)
 	inst.entity:AddSoundEmitter()
 
 	MakeInventoryPhysics(inst)
-
-	inst:AddComponent("stackable")
-	inst.components.stackable.maxsize = 1
 	
 	inst:AddComponent("inspectable")
 	inst.components.inspectable.getstatus = describe

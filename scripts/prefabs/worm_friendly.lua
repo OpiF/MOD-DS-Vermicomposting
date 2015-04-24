@@ -20,7 +20,6 @@ local function plant(inst)
 end
 
 local function ondeploy (inst, pt)
-	inst = inst.components.stackable:Get()
 	inst.Transform:SetPosition(pt:Get())
 
 	plant(inst)
@@ -67,9 +66,6 @@ local function fn(Sim)
 	inst.AnimState:SetBank("worm_friendly")
 	inst.AnimState:SetBuild("worm_friendly")
 	inst.AnimState:PlayAnimation("idle")
-
-	inst:AddComponent("stackable")
-	inst.components.stackable.maxsize = 1
 
 	inst:AddComponent("inspectable")
 	inst.components.inspectable.getstatus = describe
