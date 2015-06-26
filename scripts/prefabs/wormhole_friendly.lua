@@ -1,7 +1,7 @@
 require "stategraphs/SGwormhole_friendly"
 require "vermicomposting_shared"
 
-local assets =
+local Assets =
 {
 	Asset("ANIM", "anim/teleporter_worm.zip"),
 	Asset("ANIM", "anim/teleporter_worm_friendly_build.zip"),
@@ -11,6 +11,7 @@ local assets =
 
 local function onopen(inst)
 	VermicompostingFillPack(inst)
+	
 	inst.SoundEmitter:PlaySound("dontstarve/wilson/backpack_open", "open")
 end
 
@@ -113,7 +114,7 @@ local function fn(Sim)
     MakeInventoryPhysics(inst)
 	
     inst:AddComponent("container")
-    inst.components.container:SetNumSlots(#slotpos)
+    inst.components.container:SetNumSlots(0)
     inst.components.container.widgetslotpos = slotpos	
     inst.components.container.widgetanimbank = "ui_backpack_2x4"
     inst.components.container.widgetanimbuild = "ui_worm_menu_2x4"
@@ -129,4 +130,4 @@ local function fn(Sim)
 	return inst
 end
 
-return Prefab("vermicomposting/wormhole_friendly", fn, assets)
+return Prefab("vermicomposting/wormhole_friendly", fn, Assets)

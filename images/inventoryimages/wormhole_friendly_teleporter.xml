@@ -1,0 +1,13 @@
+<Atlas>
+	<Texture filename="wormhole_friendly_teleporter.tex" />
+    <Elements>
+		<Element name="wormhole_friendly_teleporter_1.tex" u1="0.33333333" u2="0.66666666" v1="0.66666666" v2="1.00000000" />
+		<Element name="wormhole_friendly_teleporter_2.tex" u1="0.66666666" u2="1.00000000" v1="0.66666666" v2="1.00000000" />
+		<Element name="wormhole_friendly_teleporter_3.tex" u1="0.00000000" u2="0.33333333" v1="0.33333333" v2="0.66666666" />
+		<Element name="wormhole_friendly_teleporter_4.tex" u1="0.33333333" u2="0.66666666" v1="0.33333333" v2="0.66666666" />
+		<Element name="wormhole_friendly_teleporter_5.tex" u1="0.66666666" u2="1.00000000" v1="0.33333333" v2="0.66666666" />
+		<Element name="wormhole_friendly_teleporter_6.tex" u1="0.00000000" u2="0.33333333" v1="0.00000000" v2="0.33333333" />
+		<Element name="wormhole_friendly_teleporter_7.tex" u1="0.33333333" u2="0.66666666" v1="0.00000000" v2="0.33333333" />
+		<Element name="wormhole_friendly_teleporter_8.tex" u1="0.66666666" u2="1.00000000" v1="0.00000000" v2="0.33333333" />
+	</Elements>
+</Atlas>

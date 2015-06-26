@@ -28,6 +28,7 @@ function VermicompostingFillPack(pack)
 	for key,value in pairs(menu) do
 		local teleporter = SpawnPrefab("wormhole_friendly_teleporter")
 		teleporter.index = key
+		teleporter.components.inventoryitem.imagename = "wormhole_friendly_teleporter_"..key
 		
 		pack.components.inventory:RemoveItemBySlot(key)
 		pack.components.inventory:GiveItem(teleporter, key)

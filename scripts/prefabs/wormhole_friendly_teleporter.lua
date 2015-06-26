@@ -1,11 +1,10 @@
 require "prefabutil"
 require "vermicomposting_shared"
 
-local Assets = {}
-
-local function describe(inst)
-	return "?????"
-end
+local Assets =
+{
+	Asset("ATLAS", "images/inventoryimages/wormhole_friendly_teleporter.xml"),
+}
 
 local function displaynamefn(inst)
 	return "Friendly Teleporter"
@@ -17,20 +16,16 @@ end
 
 local function fn(Sim)
 	local inst = CreateEntity()
-
 	inst.entity:AddTransform()
 	inst.entity:AddAnimState()
 	inst.entity:AddSoundEmitter()
-
 	MakeInventoryPhysics(inst)
-	
-	inst:AddComponent("inspectable")
-	inst.components.inspectable.getstatus = describe
-	
+
 	inst:AddComponent("inventoryitem")
-	
-    inst:AddComponent("useableitem")
-    inst.components.useableitem:SetOnUseFn(VermicompostingTeleportTo)
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/wormhole_friendly_teleporter.xml"
+		
+	inst:AddComponent("useableitem")
+    	inst.components.useableitem:SetOnUseFn(VermicompostingTeleportTo)
 	inst.components.useableitem:SetCanInteractFn(caninteract)
 	
 	inst.displaynamefn = displaynamefn

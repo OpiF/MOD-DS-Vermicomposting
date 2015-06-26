@@ -26,6 +26,7 @@ local function ondeploy (inst, pt)
 end
 
 local notags = {'NOBLOCK', 'player', 'FX'}
+
 local function test_ground(inst, pt)
 	local tiletype = GetGroundTypeAtPosition(pt)
 	local ground_OK = tiletype ~= GROUND.IMPASSABLE and tiletype ~= GROUND.UNDERROCK and tiletype < GROUND.UNDERGROUND
@@ -48,10 +49,6 @@ local function test_ground(inst, pt)
 	return false
 end
 
-local function describe(inst)
-	return "?????"
-end
-
 local function displaynamefn(inst)
 	return "Friendly Worm"
 end
@@ -67,9 +64,6 @@ local function fn(Sim)
 	inst.AnimState:SetBuild("worm_friendly")
 	inst.AnimState:PlayAnimation("idle")
 
-	inst:AddComponent("inspectable")
-	inst.components.inspectable.getstatus = describe
-	
 	inst:AddComponent("inventoryitem")
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/worm_friendly.xml"
 	
@@ -82,5 +76,5 @@ local function fn(Sim)
 	return inst
 end
 
-return Prefab("common/inventory/worm_friendly", fn, Assets),
-	MakePlacer("common/worm_friendly_placer", "teleporter_worm", "teleporter_worm_friendly_build", "idle_loop")
+return Prefab("vermicomposting/inventory/worm_friendly", fn, Assets),
+	MakePlacer("vermicomposting/worm_friendly_placer", "teleporter_worm", "teleporter_worm_friendly_build", "idle_loop")
