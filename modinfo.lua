@@ -1,5 +1,5 @@
 name = "Vermicomposting"
-description = "Adds farmable worms to make your own compost and wormholes"
+description = "Adds friendly plantable worms to create your own wormhole network."
 author = "Hazy Mind Interactive"
 version = "1.0.0"
 api_version = 6

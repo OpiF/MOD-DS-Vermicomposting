@@ -1,6 +1,3 @@
-GLOBAL.CHEATS_ENABLED = true
-GLOBAL.require('debugkeys')
-
 PrefabFiles = {"wormhole_friendly", "worm_friendly", "wormhole_friendly_teleporter"}
 
 Assets =
