@@ -75,10 +75,6 @@ local function fn(Sim)
     
 	inst:SetStateGraph("SGwormhole_friendly")
     
-	inst:AddComponent("inspectable")
-	inst.components.inspectable.getstatus = GetStatus
-	inst.components.inspectable:RecordViews()
-
 	inst:AddComponent("playerprox")
 	inst.components.playerprox:SetDist(4,5)
 	inst.components.playerprox.onnear = function()

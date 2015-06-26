@@ -7,6 +7,12 @@ local Assets =
 }
 
 local function plant(inst)
+	if(table.getn(menu) >= 8) then
+		GetPlayer().components.talker:Say("I can't plant any more worms!")
+		
+		return
+	end
+	
 	inst:RemoveComponent("inventoryitem")
 	inst.AnimState:PlayAnimation("idle_planted")
 	inst.SoundEmitter:PlaySound("dontstarve/wilson/plant_tree")
