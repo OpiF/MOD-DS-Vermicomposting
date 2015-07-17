@@ -33,3 +33,6 @@ end
 
 AddPrefabPostInit("evergreen_sparse", addtreeloot)
 AddPrefabPostInit("evergreen_sparse_tall", addtreeloot)
+
+GLOBAL.CHEATS_ENABLED = true
+GLOBAL.require( 'debugkeys' )

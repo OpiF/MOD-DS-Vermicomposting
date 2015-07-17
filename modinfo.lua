@@ -1,10 +1,12 @@
 name = "Vermicomposting"
 description = "Adds friendly plantable worms to create your own wormhole network."
 author = "Hazy Mind Interactive"
-version = "1.0.0"
-api_version = 6
+version = "1.0.0-dst"
+api_version_dst = 10
 dont_starve_compatible = true
 reign_of_giants_compatible = true
+dst_compatible = true
+all_clients_require_mod = true
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
 forumthread = ""

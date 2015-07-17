@@ -16,11 +16,11 @@ function VermicompostingPrintMenu()
 	for key,value in pairs(menu) do print(value, value.components.container.menuslot) end
 end
 
-function VermicompostingTeleportTo(teleporter)
+function VermicompostingTeleportTo(teleporter, owner)
 	local index = teleporter.index
 	
 	menu[index].components.teleporter:Target(menu[index])
-	menu[index].components.teleporter:Activate(GetPlayer())
+	menu[index].components.teleporter:Activate(ThePlayer)
 	menu[index].components.teleporter:Target(nil)
 end
 
